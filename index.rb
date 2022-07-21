@@ -1,4 +1,4 @@
-$morse_code_to_letter = {
+$MORSE_CODE_TO_LETTER = {
    '.-' => 'a',
    '-...'=> 'b',
    '-.-.' => 'c',
@@ -28,9 +28,28 @@ $morse_code_to_letter = {
 }
 
 def decode_char(input)
-   return "#{$morse_code_to_letter[input].upcase}"
+   return "#{$MORSE_CODE_TO_LETTER[input].upcase}"
+end
+
+def decode_word(input)
+   arrayOfCodes = input.split(' ')
+   decodedString =[]
+    arrayOfCodes.each do |element|
+      decodedString.push(decode_char(element))
+    end
+   return decodedString.join('').upcase
+end
+
+def decode(input)
+   arrayOfWords= input.split('   ')
+   decodedString =[]
+    arrayOfWords.each do |element|
+      decodedString.push(decode_word(element))
+    end
+   puts decodedString.join(' ').upcase
 end
 
 
-
-puts decode_char ".-"
+puts decode_char (".-")
+puts decode("-- -.--   -. .- -- .")
+puts decode(".-   -... --- -..-   ..-. ..- .-.. .-..   --- ..-.   .-. ..- -... .. . ...")
