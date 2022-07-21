@@ -22,7 +22,7 @@ def decode(input)
   array_of_words.each do |element|
     decoded_string.push(decode_word(element))
   end
-  puts decoded_string.join(' ')
+  decoded_string.join(' ')
 end
 
-decode('.-   -... --- -..-   ..-. ..- .-.. .-..   --- ..-.   .-. ..- -... .. . ...')
+puts decode('.-   -... --- -..-   ..-. ..- .-.. .-..   --- ..-.   .-. ..- -... .. . ...')
